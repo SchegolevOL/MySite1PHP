@@ -1,8 +1,7 @@
 <?php
-error_reporting(-1);
+//error_reporting(-1);
 session_start();
 include_once 'pages/functions.php';
-
 if (isset($_POST['auth'])) {
     login($_POST['name'], $_POST['pass']);
 
@@ -41,7 +40,8 @@ if (isset($_GET['do']) && $_GET['do'] == 'exit') {
         <header class="col-sm-12 col-md-12 col-lg-12">
           <?php include 'pages/menu.php';  ?>
 
-            <?php if ($_GET['page']!=1) include_once('pages/home.php');?>
+            <?php if(isset($_GET['page']))
+                if ($_GET['page']!=1) include_once('pages/home.php');?>
 
         </header>
     </div>
